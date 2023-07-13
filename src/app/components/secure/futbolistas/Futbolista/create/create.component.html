@@ -1,1 +1,25 @@
-<p>create works!</p>
+<!-- crear-jugador.component.html -->
+<form (submit)="crearJugador()">
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input type="text" class="form-control" id="nombre" [(ngModel)]="nombre" name="nombre" required>
+    </div>
+    <div class="form-group">
+      <label for="ap_paterno">Apellido Paterno</label>
+      <input type="text" class="form-control" id="ap_paterno" [(ngModel)]="ap_paterno" name="ap_paterno" required>
+    </div>
+    <div class="form-group">
+      <label for="ap_materno">Apellido Materno</label>
+      <input type="text" class="form-control" id="ap_materno" [(ngModel)]="ap_materno" name="ap_materno">
+    </div>
+    <div class="form-group">
+      <label for="alias">Alias</label>
+      <input type="text" class="form-control" id="alias" [(ngModel)]="alias" name="alias">
+    </div>
+    <div class="form-group">
+      <label for="no_camiseta">No. Camiseta</label>
+      <input type="number" class="form-control" id="no_camiseta" [(ngModel)]="no_camiseta" name="no_camiseta" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+  </form>
+  
