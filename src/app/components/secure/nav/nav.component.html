@@ -1,0 +1,18 @@
+
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center" routerLink="/dashboard">
+            <img src="../../../../assets/futbolistas.jpg" alt="" width="70" height="70"
+                class="d-inline-block align-text-top">
+            <span class="d-inline-block ms-2">Futbolistas</span>
+        </a>
+        <ul class="navbar-nav ms-auto flex-row">
+            <li class="nav-item">
+                <a class="nav-link me-3" routerLink="/futbolistas">Estadio</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link me-3 cursor-pointer" (click)="cerrarSesion()">Cerrar Sesion</a>
+            </li>
+        </ul>
+    </div>
+</nav>
