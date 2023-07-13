@@ -13,6 +13,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { FutbolistasComponent } from './components/secure/futbolistas/futbolistas.component';
+import { CreateComponent } from './components/secure/futbolistas/Futbolista/create/create.component';
+import { UpdateComponent } from './components/secure/futbolistas/Futbolista/update/update.component';
+
 
 
 
@@ -23,7 +27,11 @@ import { RouterModule } from '@angular/router';
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
-    NavComponent
+    NavComponent,
+    FutbolistasComponent,
+    CreateComponent,
+    UpdateComponent,
+    
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,27 @@
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido Paterno</th>
+        <th scope="col">Apellido Materno</th>
+        <th scope="col">Alias</th>
+        <th scope="col">No_Camiseta</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let futbolista of futbolistas" >
+        <td><b>{{ futbolista.nombre }}</b></td>
+        <td>{{ futbolista.ap_paterno }}</td>
+        <td>{{ futbolista.ap_materno }}</td>
+        <td>{{ futbolista.alias}}</td>
+        <td>{{ futbolista.no_camiseta }}</td>
+                        <td>
+                          <!--<button class="edit" (click)="openEditModal(persona)">Edit</button> -->  
+                           <!-- <button class="delete" (click)="deletePersona(persona)">Delete</button> -->
+                        </td>
+      </tr>
+      
+    </tbody>
+  </table>
+  
+ 
