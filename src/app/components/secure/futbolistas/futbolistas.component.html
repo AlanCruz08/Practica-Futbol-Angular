@@ -6,6 +6,7 @@
         <th scope="col">Apellido Materno</th>
         <th scope="col">Alias</th>
         <th scope="col">No_Camiseta</th>
+        <th scope="col">Acciones</th> <!-- Agregado el encabezado de Acciones -->
       </tr>
     </thead>
     <tbody>
@@ -15,13 +16,15 @@
         <td>{{ futbolista.ap_materno }}</td>
         <td>{{ futbolista.alias}}</td>
         <td>{{ futbolista.no_camiseta }}</td>
-                        <td>
+        <td>
+          <button class="btn btn-primary">Editar</button>
+          <button class="btn btn-danger">Eliminar</button>
                           <!--<button class="edit" (click)="openEditModal(persona)">Edit</button> -->  
                            <!-- <button class="delete" (click)="deletePersona(persona)">Delete</button> -->
-                        </td>
+        </td>
       </tr>
-      
     </tbody>
   </table>
+  <button class="btn btn-primary">Crear</button>
   
  
