@@ -6,6 +6,7 @@ import { DashboardComponent } from './components/secure/dashboard/dashboard.comp
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { DivisionComponent } from './components/secure/division/division.component';
+import { EstadioComponent } from './components/secure/estadio/estadio.component';
 
 
 
@@ -16,7 +17,8 @@ const routes: Routes = [
 
 //  { path: 'dashboard', component: DashboardComponent, canActivate: [tokenGuard]},
 { path: 'dashboard', component: DashboardComponent},
-  {path: 'division', component: DivisionComponent}
+  {path: 'division', component: DivisionComponent},
+  {path: 'estadio', component: EstadioComponent}
 ];
 
 @NgModule({

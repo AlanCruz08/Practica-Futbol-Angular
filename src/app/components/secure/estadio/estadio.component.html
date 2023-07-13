@@ -1,0 +1,16 @@
+<app-nav> </app-nav>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Pais</th>
+      <th scope="col">Capacidad</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr *ngFor="let estadio of estadios">
+      <td>{{estadio.nombre}}</td>
+      <td>{{estadio.pais}}</td>
+      <td>{{estadio.capacidad}}</td>
+    </tr>
