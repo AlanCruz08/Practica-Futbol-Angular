@@ -12,6 +12,7 @@ type NewType = Division;
 export class DivisionService {
 
   private apiUrl = environment.apiUrl;
+  private apiUrlDiv = environment.apiUrlDiv;
   constructor(private htttp: HttpClient) { }
 
 
@@ -23,7 +24,7 @@ export class DivisionService {
 }
 
   getDivisiones(): Observable<NewType[]> {
-  return this.htttp.get<Division[]>(`${this.apiUrl}/`);
+  return this.htttp.get<Division[]>(`${this.apiUrlDiv}/`);
   }
 
   createDivision(division: Division): Observable<Division>
