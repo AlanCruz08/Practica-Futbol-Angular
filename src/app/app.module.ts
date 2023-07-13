@@ -16,6 +16,7 @@ import { RouterModule } from '@angular/router';
 import { FutbolistasComponent } from './components/secure/futbolistas/futbolistas.component';
 import { CreateComponent } from './components/secure/futbolistas/Futbolista/create/create.component';
 import { UpdateComponent } from './components/secure/futbolistas/Futbolista/update/update.component';
+import { DivisionComponent } from './components/secure/division/division.component';
 
 
 
@@ -31,6 +32,7 @@ import { UpdateComponent } from './components/secure/futbolistas/Futbolista/upda
     FutbolistasComponent,
     CreateComponent,
     UpdateComponent,
+    DivisionComponent,
     
   ],
   imports: [

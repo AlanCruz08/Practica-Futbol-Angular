@@ -5,6 +5,7 @@ import { DashboardComponent } from './components/secure/dashboard/dashboard.comp
 //import { tokenGuard } from './guards/token.guard';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
+import { DivisionComponent } from './components/secure/division/division.component';
 
 
 
@@ -12,9 +13,10 @@ const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+
 //  { path: 'dashboard', component: DashboardComponent, canActivate: [tokenGuard]},
 { path: 'dashboard', component: DashboardComponent},
-  
+  {path: 'division', component: DivisionComponent}
 ];
 
 @NgModule({

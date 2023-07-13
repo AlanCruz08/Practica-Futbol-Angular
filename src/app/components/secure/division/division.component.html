@@ -1,0 +1,14 @@
+<app-nav></app-nav>
+<table class="table">   
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Nivel</th>
+        <th scope="col">Liga</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let division of divisiones">
+        <td><b>{{ division.nivel }}</b></td>
+        <td>{{ division.liga }}</td>
+      </tr>
+</table>
