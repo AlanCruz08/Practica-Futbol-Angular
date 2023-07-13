@@ -39,6 +39,7 @@ export class CreateComponent {
         this.alias = '';
         this.no_camiseta = 0;
         
+        
       },
       error => {
         console.error('Error al crear jugador:', error);
