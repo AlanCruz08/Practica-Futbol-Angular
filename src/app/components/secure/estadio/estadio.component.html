@@ -1,16 +1,28 @@
-<app-nav> </app-nav>
+<app-nav></app-nav>
+
 <table class="table">
   <thead class="thead-dark">
     <tr>
       <th scope="col">Nombre</th>
       <th scope="col">Pais</th>
       <th scope="col">Capacidad</th>
+      <th scope="col">Acciones</th>
     </tr>
   </thead>
   <tbody>
-
     <tr *ngFor="let estadio of estadios">
-      <td>{{estadio.nombre}}</td>
-      <td>{{estadio.pais}}</td>
-      <td>{{estadio.capacidad}}</td>
+      <td>{{ estadio.nombre }}</td>
+      <td>{{ estadio.pais }}</td>
+      <td>{{ estadio.capacidad }}</td>
+      <td>
+        <!-- Botones de Acciones -->
+        <button class="btn btn-primary">Editar</button>
+        <button class="btn btn-danger">Eliminar</button>
+      </td>
     </tr>
+  </tbody>
+</table>
+
+<div class="text-right mt-4">
+  <button class="btn btn-primary btn-lg">Crear</button>
+</div>
