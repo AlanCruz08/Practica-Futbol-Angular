@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FutbolistasService } from 'src/app/services/login/futbolistas/futbolista.service';
 import { Futbolista } from 'src/app/interface/futbolista';
+//importar el router
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create',
@@ -18,7 +20,10 @@ export class CreateComponent {
   alias!: string;
   no_camiseta!: number;
 
-  constructor(private futbolistasService: FutbolistasService) { }
+  constructor(
+    private futbolistasService: FutbolistasService,
+    private router: Router
+    ) { }
 
   crearJugador() {
     const jugador: Futbolista = {
@@ -38,8 +43,9 @@ export class CreateComponent {
         this.ap_materno = '';
         this.alias = '';
         this.no_camiseta = 0;
-        
-        
+
+        //rediridir a la tabla futbolistas
+          this.router.navigate(['/futbolistas']);
       },
       error => {
         console.error('Error al crear jugador:', error);
