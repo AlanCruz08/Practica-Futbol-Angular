@@ -18,24 +18,27 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [validateGuard] },
   {
-    path: 'division', component: DivisionComponent, canActivate: [validateGuard],
+    path: 'division', component: DivisionComponent,
+    // canActivate: [validateGuard],
     children: [
-      { path: 'crear' },
-      { path: 'editar' },
+     // { path: 'crear' },
+      //{ path: 'editar' },
     ]
   },
   {
-    path: 'estadio', component: EstadioComponent, canActivate: [validateGuard],
+    path: 'estadio', component: EstadioComponent, 
+    //canActivate: [validateGuard],
     children: [
-      { path: 'crear', component: CreateComponent },
-      { path: 'editar' },
+      //{ path: 'crear', component: CreateComponent },
+      //{ path: 'editar' },
     ]
   },
   {
-    path: 'futbolistas', component: FutbolistasComponent, canActivate: [validateGuard],
+    path: 'futbolistas', component: FutbolistasComponent, 
+    //canActivate: [validateGuard],
     children: [
-      { path: 'crear', component: CreateComponent },
-      { path: 'editar' },
+     // { path: 'crear', component: CreateComponent },
+      //{ path: 'editar' },
     ]
   },
   /*{
