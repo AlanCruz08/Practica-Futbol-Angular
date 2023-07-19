@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { FutbolistasService } from 'src/app/services/login/futbolistas/futbolista.service';
-import { Futbolista } from 'src/app/interface/futbolista';
+import { FutbolistasService } from 'src/app/services/Secure/futbolista.service';
+import { Futbolista } from 'src/app/interface/secure';
 //importar el router
 import { Router } from '@angular/router';
 

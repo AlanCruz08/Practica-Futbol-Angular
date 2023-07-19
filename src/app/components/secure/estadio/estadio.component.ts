@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Estadio } from 'src/app/interface/estadio';
-import { EstadioService } from 'src/app/services/login/estadios/estadio.service';
+import { Estadio } from 'src/app/interface/secure';
+import { EstadioService } from 'src/app/services/Secure/estadio.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 

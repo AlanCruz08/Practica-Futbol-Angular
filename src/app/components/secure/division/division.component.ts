@@ -1,6 +1,6 @@
 import { Component,OnInit } from '@angular/core';
-import { Division } from 'src/app/interface/division';
-import { DivisionService } from 'src/app/services/login/divisiones/division.service';
+import { Division } from 'src/app/interface/secure';
+import { DivisionService } from 'src/app/services/Secure/division.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
