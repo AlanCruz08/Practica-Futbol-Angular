@@ -19,6 +19,7 @@ import { UpdateComponent } from './components/secure/futbolistas/Futbolista/upda
 import { DivisionComponent } from './components/secure/division/division.component';
 import { EstadioComponent } from './components/secure/estadio/estadio.component';
 import { CreateDivisionComponent } from './components/secure/division/create-division/create-division.component';
+import { CreateEstadioComponent } from './components/secure/estadio/create-estadio/create-estadio.component';
 
 
 
@@ -38,6 +39,7 @@ import { CreateDivisionComponent } from './components/secure/division/create-div
     DivisionComponent,
     EstadioComponent,
     CreateDivisionComponent,
+    CreateEstadioComponent,
     
     
   ],
