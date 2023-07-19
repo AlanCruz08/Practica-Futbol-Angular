@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Futbolista } from 'src/app/interface/futbolista';
+import { Futbolista } from 'src/app/interface/secure';
 import { environment } from 'env';
 
 type NewType = Futbolista;
