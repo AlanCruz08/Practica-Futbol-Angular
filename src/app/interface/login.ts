@@ -11,5 +11,5 @@ export interface Register {
     password: string;
 }
 export interface Logout {
-    access_token: string|null;
+    token: string | null;
 }

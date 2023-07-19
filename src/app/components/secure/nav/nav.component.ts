@@ -17,7 +17,7 @@ export class NavComponent {
 
   cerrarSesion() {
     if (this.token !== null) {
-      this.logoutService.logout({ access_token: this.token }).subscribe(
+      this.logoutService.logout({ token: this.token }).subscribe(
         (response: any) => {
           console.log(response);
           localStorage.removeItem('token');

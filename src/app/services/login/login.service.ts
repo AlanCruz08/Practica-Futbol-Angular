@@ -17,6 +17,12 @@ export class ApiService {
     this.headers = new HttpHeaders({ "Accept": "application/json", "Ahutorization": "Bearer " });
   }
 
+  validacion(token: string){
+    const headers = new HttpHeaders({ "Accept": "application/json", "Authorization": `Bearer ${token}` });
+    const resp = this.http.post(`${this.apiUrlSP}/validate`, token, {headers: headers});
+    return resp;
+  }
+
   logout(credentials: Logout): Observable<any> {
     const token = localStorage.getItem('token');
 

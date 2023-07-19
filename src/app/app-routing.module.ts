@@ -9,6 +9,7 @@ import { DivisionComponent } from './components/secure/division/division.compone
 import { EstadioComponent } from './components/secure/estadio/estadio.component';
 import { FutbolistasComponent } from './components/secure/futbolistas/futbolistas.component';
 import { CreateComponent } from './components/secure/futbolistas/Futbolista/create/create.component';
+import { validateGuard } from './guards/validate.guard';
 
 
 
@@ -17,8 +18,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
 
-//  { path: 'dashboard', component: DashboardComponent, canActivate: [tokenGuard]},
-{ path: 'dashboard', component: DashboardComponent},
+  { path: 'dashboard', component: DashboardComponent, canActivate: [validateGuard]},
+  //  { path: 'dashboard', component: DashboardComponent},
   {path: 'division', component: DivisionComponent},
   {path: 'estadio', component: EstadioComponent},
   {path:'futbolistas', component: FutbolistasComponent},
