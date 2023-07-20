@@ -52,6 +52,7 @@ export class LoginComponent {
           this.error = null;
           const token = response.access_token;
           localStorage.setItem('token', token);
+          console.log('antes dashboard');
           this.router.navigate(['/dashboard']);
         },
         error => {

@@ -18,6 +18,7 @@ import { CreateComponent } from './components/secure/futbolistas/Futbolista/crea
 import { UpdateComponent } from './components/secure/futbolistas/Futbolista/update/update.component';
 import { DivisionComponent } from './components/secure/division/division.component';
 import { EstadioComponent } from './components/secure/estadio/estadio.component';
+import { HighlightDirective } from './directives/highlight.directive';
 
 
 
@@ -35,6 +36,7 @@ import { EstadioComponent } from './components/secure/estadio/estadio.component'
     UpdateComponent,
     DivisionComponent,
     EstadioComponent,
+    HighlightDirective,
     
   ],
   imports: [
