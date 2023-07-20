@@ -1,0 +1,28 @@
+<app-nav></app-nav>
+<div class="ms-5 mt-4">
+  <button class="btn btn-primary" routerLink="/estadio/crear">Crear</button>
+</div>
+<table class="table mt-3 ms-3 me-3">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Pais</th>
+      <th scope="col">Capacidad</th>
+      <th scope="col">Acciones</th>
+       <!-- Agregado el encabezado de Acciones -->
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let estadio of estadios">
+      <td><b>{{ estadio.nombre }}</b></td>
+      <td>{{ estadio.pais }}</td>
+      <td>{{ estadio.capacidad }}</td>
+      <td>
+        <div class="mx-3 ">
+          <button class="btn btn-primary me-4">Editar</button>
+          <button class="btn btn-danger">Eliminar</button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

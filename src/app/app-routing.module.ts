@@ -9,6 +9,8 @@ import { EstadioComponent } from './components/secure/estadio/estadio.component'
 import { FutbolistasComponent } from './components/secure/futbolistas/futbolistas.component';
 import { CreateComponent } from './components/secure/futbolistas/Futbolista/create/create.component';
 import { validateGuard } from './guards/validate.guard';
+import { CreateEstadioComponent } from './components/secure/estadio/create-estadio/create-estadio.component';
+import { CreateDivisionComponent } from './components/secure/division/create-division/create-division.component';
 
 
 
@@ -19,21 +21,24 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, /*canActivate: [validateGuard]*/ },
   
   {
-    path: 'division', component: DivisionComponent, canActivate: [validateGuard],
+    path: 'division', component: DivisionComponent,
+    // canActivate: [validateGuard],
     children: [
       { path: 'crear', component: CreateComponent },
       { path: 'editar', component: CreateComponent },
     ]
   },
   {
-    path: 'estadio', component: EstadioComponent, canActivate: [validateGuard],
+    path: 'estadio', component: EstadioComponent, 
+    //canActivate: [validateGuard],
     children: [
       { path: 'crear', component: CreateComponent },
       { path: 'editar', component: CreateComponent },
     ]
   },
   {
-    path: 'futbolistas', component: FutbolistasComponent, canActivate: [validateGuard],
+    path: 'futbolistas', component: FutbolistasComponent, 
+    //canActivate: [validateGuard],
     children: [
       { path: 'crear', component: CreateComponent },
       { path: 'editar', component: CreateComponent },
