@@ -1,40 +1,36 @@
-import { inject } from '@angular/core';
-import { CanActivateFn, Router } from '@angular/router';
+import { Injectable } from '@angular/core';
+import { CanActivate, Router } from '@angular/router';
 import { ApiService } from '../services/login/login.service';
-import { Logout } from '../interface/login';
-import { ResourceLoader } from '@angular/compiler';
 
-export const validateGuard: CanActivateFn = () => {
-  const loginService = inject(ApiService);
-  const router = inject(Router);
+@Injectable({
+  providedIn: 'root'
+})
+export class validateGuard implements CanActivate {
 
-  async canActivate(): Promise < boolean > {
-    const token: string | null = localStorage.getItem('token');
+  constructor(private apiService: ApiService, private router: Router) { }
 
-  if (token !== null) {
-    try {
-      const result: any = await loginService.validacion(token).toPromise();
-      rep.subscribe((result: any) => {
-        if (result === 1) {
-          console.log(token);
-          return true;
+  async canActivate(): Promise<boolean> {
+    const token = localStorage.getItem('token');
+
+    if (token) {
+      try {
+        const isTokenValid = await this.apiService.validacion(token);
+        if (isTokenValid) {
+          return true; // Usuario autenticado, se permite el acceso al dashboard
         } else {
-          console.log(result);
           localStorage.removeItem('token');
-          return false;
+          this.router.navigate(['/login']);
+          return false; // Usuario no autenticado, se redirige al login
         }
-      });
-    } catch (error) {
-      console.error(error);
-      return false;
+      } catch (error) {
+        localStorage.removeItem('token');
+        // console.error('Error al verificar el token:', error);
+        this.router.navigate(['/login']);
+        return false; // Error al verificar el token, se redirige al login por precaución
+      }
+    } else {
+      this.router.navigate(['/login']);
+      return false; // Usuario no autenticado, se redirige al login
     }
-
-
-  } else {
-    // Aquí puedes manejar el caso en el que el token sea nulo, por ejemplo, redirigir al usuario al inicio de sesión.
-    console.log('token vacio')
-    router.navigate(['/login']);
-    return false;
   }
 }
-};

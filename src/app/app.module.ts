@@ -22,11 +22,6 @@ import { HighlightDirective } from './directives/highlight.directive';
 import { CreateDivisionComponent } from './components/secure/division/create-division/create-division.component';
 import { CreateEstadioComponent } from './components/secure/estadio/create-estadio/create-estadio.component';
 
-
-
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,8 +37,6 @@ import { CreateEstadioComponent } from './components/secure/estadio/create-estad
     HighlightDirective,
     CreateDivisionComponent,
     CreateEstadioComponent,
-    
-    
   ],
   imports: [
     BrowserModule,

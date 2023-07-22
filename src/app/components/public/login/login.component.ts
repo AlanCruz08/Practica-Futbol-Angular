@@ -56,10 +56,10 @@ export class LoginComponent {
           this.router.navigate(['/dashboard']);
         },
         error => {
-          if (error && error.error && error.error.status === "error") {
-            this.error = error.error.message;
+          if (error && error.error && error.error.msg) {
+            this.error = error.error.msg;
           } else {
-            this.error = 'Error desconocido';
+            this.error = 'Error desconocido.';
           }
           setTimeout(() => {
             this.error = null; // Restablecer el valor a null para regresar al estado default
