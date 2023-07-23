@@ -4,7 +4,6 @@ import { Login } from 'src/app/interface/login';
 import { ApiService as loginService } from 'src/app/services/login/login.service';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -28,6 +27,7 @@ import { Router } from '@angular/router';
     ])
   ]
 })
+
 export class LoginComponent {
 
   login: Login = { email: '', password: '' };
@@ -40,7 +40,6 @@ export class LoginComponent {
   ngOnInit(): void {
     const token = localStorage.getItem('token');
     if (token) {
-      // Redirigir al usuario a la página principal
       this.router.navigate(['/dashboard']);
     }
   }
@@ -56,20 +55,17 @@ export class LoginComponent {
           this.router.navigate(['/dashboard']);
         },
         error => {
-          if (error && error.error && error.error.msg) {
-            this.error = error.error.msg;
-          } else {
-            this.error = 'Error desconocido.';
-          }
+          this.error = error && error.error && error.error.msg ? error.error.msg : 'Error desconocido.';
+
           setTimeout(() => {
-            this.error = null; // Restablecer el valor a null para regresar al estado default
+            this.error = null;
           }, 2000);
         }
       );
     } else {
       this.error = 'Por favor, verifica los campos.';
       setTimeout(() => {
-        this.error = null; // Restablecer el valor a null para regresar al estado default
+        this.error = null;
       }, 2000);
     }
   }

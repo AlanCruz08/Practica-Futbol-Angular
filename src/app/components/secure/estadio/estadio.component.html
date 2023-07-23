@@ -1,28 +1,47 @@
 <app-nav></app-nav>
-
-<table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">Nombre</th>
-      <th scope="col">Pais</th>
-      <th scope="col">Capacidad</th>
-      <th scope="col">Acciones</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let estadio of estadios">
-      <td>{{ estadio.nombre }}</td>
-      <td>{{ estadio.pais }}</td>
-      <td>{{ estadio.capacidad }}</td>
-      <td>
-        <!-- Botones de Acciones -->
-        <button class="btn btn-primary">Editar</button>
-        <button class="btn btn-danger">Eliminar</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-<div class="text-right mt-4">
-  <button class="btn btn-primary btn-lg">Crear</button>
+<div class="container mt-4">
+  <div class="d-flex justify-content-between mb-3">
+    <div>
+      <h3>Estadios</h3>
+    </div>
+    <button class="btn btn-info" routerLink="/crearFutbolista">Crear estadios</button>
+  </div>
+  <div class="d-flex justify-content-center">
+    <table class="table mt-3">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col" class="text-center">Nombre</th>
+          <th scope="col" class="text-center">Pais</th>
+          <th scope="col" class="text-center">Capacidad</th>
+          <th scope="col" class="text-center">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let estadio of estadiosPaginados">
+          <td>{{ estadio.nombre }}</td>
+          <td>{{ estadio.pais }}</td>
+          <td class="text-center">{{ estadio.capacidad }}</td>
+          <td>
+            <div class="d-flex justify-content-center">
+              <button class="btn btn-primary me-4">Editar</button>
+              <button class="btn btn-danger">Eliminar</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <nav *ngIf="paginasTotales.length > 1" aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <li class="page-item" [class.disabled]="paginaActual === 1">
+        <button class="page-link" (click)="cambiarPagina(paginaActual - 1)">Anterior</button>
+      </li>
+      <li class="page-item" *ngFor="let numPagina of paginasTotales" [class.active]="paginaActual === numPagina">
+        <button class="page-link" (click)="cambiarPagina(numPagina)">{{ numPagina }}</button>
+      </li>
+      <li class="page-item" [class.disabled]="paginaActual === paginasTotales.length">
+        <button class="page-link" (click)="cambiarPagina(paginaActual + 1)">Siguiente</button>
+      </li>
+    </ul>
+  </nav>
 </div>

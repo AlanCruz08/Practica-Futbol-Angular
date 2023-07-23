@@ -4,7 +4,6 @@ import { ApiService as registerService } from 'src/app/services/login/login.serv
 import { Router } from '@angular/router';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
-
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -27,10 +26,10 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
     ])
   ]
 })
+
 export class RegisterComponent {
   register: Register = { name: '', email: '', password: '' };
   error!: string | null;
-  
 
   constructor(private registerService: registerService, private router: Router) {
     this.error = null;
@@ -55,11 +54,8 @@ export class RegisterComponent {
           this.router.navigate(['/dashboard']);
         },
         error => {
-          if (error && error.error && error.error.status === 'error') {
-            this.error = error.error.message;
-          } else {
-            this.error = 'Error desconocido';
-          }
+          this.error = error && error.error && error.error.msg ? error.error.msg : 'Error desconocido.';
+          
           setTimeout(() => {
             this.error = null; // Restablecer el valor a null para regresar al estado default
           }, 2000);

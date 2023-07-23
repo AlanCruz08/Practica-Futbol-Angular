@@ -3,7 +3,7 @@ export interface Futbolista {
     nombre: string;
     ap_paterno: string;
     ap_materno?: string;
-    alias: string;
+    alias?: string;
     no_camiseta: number;
 }
 
