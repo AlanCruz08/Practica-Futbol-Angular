@@ -18,13 +18,9 @@ import { CreateComponent } from './components/secure/futbolistas/Futbolista/crea
 import { UpdateComponent } from './components/secure/futbolistas/Futbolista/update/update.component';
 import { DivisionComponent } from './components/secure/division/division.component';
 import { EstadioComponent } from './components/secure/estadio/estadio.component';
+import { HighlightDirective } from './directives/highlight.directive';
 import { CreateDivisionComponent } from './components/secure/division/create-division/create-division.component';
 import { CreateEstadioComponent } from './components/secure/estadio/create-estadio/create-estadio.component';
-
-
-
-
-
 
 @NgModule({
   declarations: [
@@ -38,10 +34,9 @@ import { CreateEstadioComponent } from './components/secure/estadio/create-estad
     UpdateComponent,
     DivisionComponent,
     EstadioComponent,
+    HighlightDirective,
     CreateDivisionComponent,
     CreateEstadioComponent,
-    
-    
   ],
   imports: [
     BrowserModule,

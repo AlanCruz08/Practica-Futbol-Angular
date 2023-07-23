@@ -1,33 +1,49 @@
 <app-nav></app-nav>
-<div class="ms-5 mt-4">
-  <button class="btn btn-primary" routerLink = "/futbolistas/crear">Crear</button>
+<div class="container mt-4">
+  <div class="d-flex justify-content-between mb-3">
+    <div><h3>Futbolistas</h3></div>
+    <button class="btn btn-info" routerLink="/crearFutbolista">Crear futbolista</button>
+  </div>
+  <div class="d-flex justify-content-center">
+    <table class="table mt-3">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col" class="text-center">Nombre</th>
+          <th scope="col" class="text-center">Apellido Paterno</th>
+          <th scope="col" class="text-center">Apellido Materno</th>
+          <th scope="col" class="text-center">Alias</th>
+          <th scope="col" class="text-center">No_Camiseta</th>
+          <th scope="col" class="text-center">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let futbolista of futbolistasPaginados">
+          <td><b>{{ futbolista.nombre }}</b></td>
+          <td>{{ futbolista.ap_paterno }}</td>
+          <td>{{ futbolista.ap_materno ?? 'N/A' }}</td>
+          <td>{{ futbolista.alias ?? 'N/A' }}</td>
+          <td class="text-center">{{ futbolista.no_camiseta }}</td>
+          <td>
+            <div class="d-flex justify-content-center">
+              <button class="btn btn-primary me-4">Editar</button>
+              <button class="btn btn-danger">Eliminar</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <nav *ngIf="paginasTotales.length > 1" aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <li class="page-item" [class.disabled]="paginaActual === 1">
+        <button class="page-link" (click)="cambiarPagina(paginaActual - 1)">Anterior</button>
+      </li>
+      <li class="page-item" *ngFor="let numPagina of paginasTotales" [class.active]="paginaActual === numPagina">
+        <button class="page-link" (click)="cambiarPagina(numPagina)">{{ numPagina }}</button>
+      </li>
+      <li class="page-item" [class.disabled]="paginaActual === paginasTotales.length">
+        <button class="page-link" (click)="cambiarPagina(paginaActual + 1)">Siguiente</button>
+      </li>
+    </ul>
+  </nav>
 </div>
-<table class="table mt-3 ms-3 me-3">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">Nombre</th>
-      <th scope="col">Apellido Paterno</th>
-      <th scope="col">Apellido Materno</th>
-      <th scope="col">Alias</th>
-      <th scope="col">No_Camiseta</th>
-      <th scope="col">Acciones</th> <!-- Agregado el encabezado de Acciones -->
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let futbolista of futbolistas">
-      <td><b>{{ futbolista.nombre }}</b></td>
-      <td>{{ futbolista.ap_paterno }}</td>
-      <td>{{ futbolista.ap_materno }}</td>
-      <td>{{ futbolista.alias}}</td>
-      <td>{{ futbolista.no_camiseta }}</td>
-      <td>
-        <div class="mx-3 ">
-          <button class="btn btn-primary me-4">Editar</button>
-          <button class="btn btn-danger">Eliminar</button>
-        </div>
-        <!--<button class="edit" (click)="openEditModal(persona)">Edit</button> -->
-        <!-- <button class="delete" (click)="deletePersona(persona)">Delete</button> -->
-      </td>
-    </tr>
-  </tbody>
-</table>

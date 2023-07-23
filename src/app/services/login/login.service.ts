@@ -4,6 +4,10 @@ import { Login, Register, Logout } from 'src/app/interface/login';
 import { environment } from 'env';
 import { Observable, throwError, catchError } from 'rxjs';
 
+interface ApiResponse {
+  data: boolean;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -17,10 +21,15 @@ export class ApiService {
     this.headers = new HttpHeaders({ "Accept": "application/json", "Ahutorization": "Bearer " });
   }
 
-  validacion(token: string){
-    const headers = new HttpHeaders({ "Accept": "application/json", "Authorization": `Bearer ${token}` });
-    const resp = this.http.post(`${this.apiUrlSP}/validate`, token, {headers: headers});
-    return resp;
+  async validacion(token: string): Promise<Boolean>{
+    try{
+      const headers = new HttpHeaders({ "Accept": "application/json", "Authorization": `Bearer ${token}` });
+      const response = await this.http.get<ApiResponse>(`${this.apiUrlSP}/validate`, { headers: headers }).toPromise();
+      return response?.data === true;
+    }catch (error) {
+      // console.error('Error al verificar el token:', error);
+      return false;
+    }
   }
 
   logout(credentials: Logout): Observable<any> {

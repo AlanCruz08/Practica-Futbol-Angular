@@ -3,7 +3,7 @@ import { LoginComponent } from './components/public/login/login.component';
 import { RegisterComponent } from './components/public/register/register.component';
 import { DashboardComponent } from './components/secure/dashboard/dashboard.component';
 import { RouterModule, Routes } from '@angular/router';
-import { NgModule, createComponent } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { DivisionComponent } from './components/secure/division/division.component';
 import { EstadioComponent } from './components/secure/estadio/estadio.component';
 import { FutbolistasComponent } from './components/secure/futbolistas/futbolistas.component';
@@ -18,31 +18,30 @@ const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'dashboard', component: DashboardComponent, 
-  //canActivate: [validateGuard] 
-},
+  { path: 'dashboard', component: DashboardComponent, canActivate: [validateGuard] },
+  
   {
     path: 'division', component: DivisionComponent,
     // canActivate: [validateGuard],
     children: [
-     { path: 'crear', component:CreateDivisionComponent },
-      //{ path: 'editar' },
+      { path: 'crear', component: CreateComponent },
+      { path: 'editar', component: CreateComponent },
     ]
   },
   {
     path: 'estadio', component: EstadioComponent, 
     //canActivate: [validateGuard],
     children: [
-      { path: 'crear', component: CreateEstadioComponent },
-      //{ path: 'editar' },
+      { path: 'crear', component: CreateComponent },
+      { path: 'editar', component: CreateComponent },
     ]
   },
   {
     path: 'futbolistas', component: FutbolistasComponent, 
     //canActivate: [validateGuard],
     children: [
-     { path: 'crear', component: CreateComponent },
-      //{ path: 'editar' },
+      { path: 'crear', component: CreateComponent },
+      { path: 'editar', component: CreateComponent },
     ]
   },
   /*{

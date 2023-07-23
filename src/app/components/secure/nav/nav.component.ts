@@ -24,7 +24,7 @@ export class NavComponent {
           this.router.navigate(['/']);
         },
         error => {
-          console.log(this.error = error.error.message);
+          console.log(this.error = error.error.msg);
           this.router.navigate(['/']);
         }
       );
