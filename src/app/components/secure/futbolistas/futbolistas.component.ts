@@ -19,10 +19,10 @@ export class FutbolistasComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.service.getFutbolista()
+    this.service.getFutbolistas()
     .subscribe((data: any) => {
         this.futbolistas = data.data;
-        console.log(this.futbolistas, 'futbolista');
+        console.log(this.futbolistas);
       },
       (error: any) => {
         console.error(error);

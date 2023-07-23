@@ -22,10 +22,10 @@ export class FutbolistasService{
     return this.http.get<Futbolista[]>(`${this.apiUrl}/`, { headers });
   }*/
 
-  getFutbolistas(id: number): Observable<Futbolista> {
+  getFutbolistas(): Observable<Futbolista> {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders({ "Accept": "application/json", "Authorization": `Bearer ${token}` });
-    const url = `${this.apiUrl}/${id}`;
+    const url = `${this.apiUrl}/`;
     return this.http.get<Futbolista>(url, { headers });
   }
 

@@ -18,7 +18,9 @@ const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'dashboard', component: DashboardComponent, canActivate: [validateGuard] },
+  { path: 'dashboard', component: DashboardComponent, 
+  //canActivate: [validateGuard] 
+},
   {
     path: 'division', component: DivisionComponent,
     // canActivate: [validateGuard],
@@ -39,7 +41,7 @@ const routes: Routes = [
     path: 'futbolistas', component: FutbolistasComponent, 
     //canActivate: [validateGuard],
     children: [
-     // { path: 'crear', component: CreateComponent },
+     { path: 'crear', component: CreateComponent },
       //{ path: 'editar' },
     ]
   },
