@@ -22,12 +22,20 @@ export class FutbolistasService{
     return this.http.get<Futbolista[]>(`${this.apiUrl}/`, { headers });
   }*/
 
-  getFutbolistas(id: number): Observable<Futbolista> {
+  /* getFutbolistas(id: number): Observable<Futbolista> {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders({ "Accept": "application/json", "Authorization": `Bearer ${token}` });
     const url = `${this.apiUrl}/`;
     return this.http.get<Futbolista>(url, { headers });
+  } */
+
+  getFutbolistas(id: number): Observable<Futbolista> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({ "Accept": "application/json", "Authorization": `Bearer ${token}` });
+    const url = `${this.apiUrl}/${id}`; // Asegúrate de incluir el ID en la URL
+    return this.http.get<Futbolista>(url, { headers });
   }
+  
 
   getFutbolista(): Observable<NewType[]> {
     return this.http.get<Futbolista[]>(`${this.apiUrl}/`);

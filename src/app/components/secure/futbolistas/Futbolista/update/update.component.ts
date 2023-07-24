@@ -3,42 +3,32 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FutbolistasService } from 'src/app/services/Secure/futbolista.service';
 import { Futbolista } from 'src/app/interface/secure';
 
+
 @Component({
   selector: 'app-update',
   templateUrl: './update.component.html',
   styleUrls: ['./update.component.css']
 })
 export class UpdateComponent implements OnInit {
-  futbolista: Futbolista = {
-    nombre: '',
-    ap_paterno: '',
-    ap_materno: '',
-    alias: '',
-    no_camiseta: 0,
-  };
+  futbolista!: Futbolista; // Agrega una propiedad para almacenar el futbolista
   futbolistaId!: number; // Agrega una propiedad para almacenar el ID del futbolista
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private service: FutbolistasService
+
+
   ) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.futbolistaId = +params['id']; // Obtenemos el ID del futbolista de la URL
-
-      nombre: this.futbolista.nombre;
-      ap_paterno: this.futbolista.ap_paterno;
-      ap_materno: this.futbolista.ap_materno;
-      alias: this.futbolista.alias;
-      no_camiseta: this.futbolista.no_camiseta;
-      
-
       // Llamamos al servicio para obtener los detalles del futbolista por su ID
       this.service.getFutbolistas(this.futbolistaId).subscribe(
         (data: Futbolista) => {
           this.futbolista = data;
+          console.log(data);
         },
         (error: any) => {
           console.error(error);
@@ -47,7 +37,8 @@ export class UpdateComponent implements OnInit {
         }
       );
     });
-  }
+    };
+  
 
   guardarCambios() {
     // Llamamos al servicio para guardar los cambios del futbolista
