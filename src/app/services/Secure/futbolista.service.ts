@@ -45,6 +45,7 @@ export class FutbolistasService{
     const headers = new HttpHeaders({ "Accept": "application/json", "Authorization": `Bearer ${token}` });
     const url = `${this.apiUrl}/${id}`;
     return this.http.put<Futbolista>(url, futbolista, { headers });
+    
   }
 
   deletePersona(id: number): Observable<void> {

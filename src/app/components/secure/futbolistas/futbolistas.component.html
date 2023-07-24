@@ -25,7 +25,8 @@
           <td class="text-center">{{ futbolista.no_camiseta }}</td>
           <td>
             <div class="d-flex justify-content-center">
-              <button class="btn btn-primary me-4">Editar</button>
+              <!-- <button class="btn btn-primary me-4" (click)="editarFutbolista(futbolista.id)" >Editar</button> -->
+              <button class="btn btn-primary me-4" *ngIf="futbolista.id !== undefined" (click)="editarFutbolista(futbolista.id)">Editar</button>
               <button class="btn btn-danger me-2" (click)="futbolista.id && eliminarFutbolista(futbolista.id)">Eliminar</button>
 
             </div>

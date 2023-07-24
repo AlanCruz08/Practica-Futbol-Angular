@@ -74,8 +74,9 @@ export class FutbolistasComponent implements OnInit {
     );
   }
 
-  editarFutbolista(futbolista: Futbolista) {
+  editarFutbolista(id: number) {
     // Redirigir a la ruta de edición con el ID del futbolista
-    this.router.navigateByUrl(`/editarFutbolista/${futbolista.id}`);
+    this.router.navigateByUrl(`/editarFutbolista/${id}`);
+    console.log(id);
   } 
 }
