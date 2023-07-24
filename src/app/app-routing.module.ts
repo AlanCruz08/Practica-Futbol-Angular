@@ -11,6 +11,7 @@ import { CreateComponent } from './components/secure/futbolistas/Futbolista/crea
 import { validateGuard } from './guards/validate.guard';
 import { CreateEstadioComponent } from './components/secure/estadio/create-estadio/create-estadio.component';
 import { CreateDivisionComponent } from './components/secure/division/create-division/create-division.component';
+import { EquiposComponent } from './components/secure/equipos/equipos.component';
 
 
 
@@ -22,7 +23,7 @@ const routes: Routes = [
   
   {
     path: 'division', component: DivisionComponent,
-    // canActivate: [validateGuard],
+    canActivate: [validateGuard],
     children: [
       { path: 'crear', component: CreateComponent },
       { path: 'editar', component: CreateComponent },
@@ -30,7 +31,7 @@ const routes: Routes = [
   },
   {
     path: 'estadio', component: EstadioComponent, 
-    //canActivate: [validateGuard],
+    canActivate: [validateGuard],
     children: [
       { path: 'crear', component: CreateComponent },
       { path: 'editar', component: CreateComponent },
@@ -38,19 +39,20 @@ const routes: Routes = [
   },
   {
     path: 'futbolistas', component: FutbolistasComponent, 
-    //canActivate: [validateGuard],
+    canActivate: [validateGuard],
     children: [
       { path: 'crear', component: CreateComponent },
       { path: 'editar', component: CreateComponent },
     ]
   },
-  /*{
-    path: 'equipos', component: iji, canActivate: [validateGuard],
+  {
+    path: 'equipos', component: EquiposComponent, 
+    canActivate: [validateGuard],
     children: [
       { path: 'crear', component: CreateComponent },
-      { path: 'editar' },
+      { path: 'editar', component: CreateComponent },
     ]
-  }*/
+  }
 ];
 
 @NgModule({

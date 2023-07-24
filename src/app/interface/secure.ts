@@ -20,3 +20,10 @@ export interface Division {
     liga: string;
 
 }
+
+export interface Equipo {
+    id?: number;
+    nombre: string;
+    dir_deportivo: string;
+    estadio_id: number;
+}
