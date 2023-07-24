@@ -25,7 +25,7 @@ export class FutbolistasService{
   getFutbolistas(id: number): Observable<Futbolista> {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders({ "Accept": "application/json", "Authorization": `Bearer ${token}` });
-    const url = `${this.apiUrl}/${id}`;
+    const url = `${this.apiUrl}/`;
     return this.http.get<Futbolista>(url, { headers });
   }
 
@@ -40,11 +40,12 @@ export class FutbolistasService{
     return this.http.post<Futbolista>(url, persona, { headers });
   }
 
-  updatePersona(id: number, persona: Futbolista): Observable<Futbolista> {
+  updateFutbolista(id: number, futbolista: Futbolista): Observable<Futbolista> {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders({ "Accept": "application/json", "Authorization": `Bearer ${token}` });
     const url = `${this.apiUrl}/${id}`;
-    return this.http.put<Futbolista>(url, persona, { headers });
+    return this.http.put<Futbolista>(url, futbolista, { headers });
+    
   }
 
   deletePersona(id: number): Observable<void> {

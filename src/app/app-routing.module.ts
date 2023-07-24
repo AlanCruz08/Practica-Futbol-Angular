@@ -12,6 +12,7 @@ import { validateGuard } from './guards/validate.guard';
 import { CreateEstadioComponent } from './components/secure/estadio/create-estadio/create-estadio.component';
 import { CreateDivisionComponent } from './components/secure/division/create-division/create-division.component';
 import { EquiposComponent } from './components/secure/equipos/equipos.component';
+import { UpdateComponent } from './components/secure/futbolistas/Futbolista/update/update.component';
 
 
 
@@ -21,12 +22,18 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [validateGuard] },
   
+  
+  { path: 'futbolistas', component: FutbolistasComponent },
+  { path: 'crearFutbolista', component: CreateComponent },
+  { path: 'editarFutbolista/:id', component: UpdateComponent },
+  
+  /*
   {
     path: 'division', component: DivisionComponent,
     canActivate: [validateGuard],
     children: [
-      { path: 'crear', component: CreateComponent },
-      { path: 'editar', component: CreateComponent },
+     // { path: 'crear', component: CreateComponent },
+    // { path: 'editar', component: CreateComponent },
     ]
   },
   {
@@ -59,4 +66,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule { }*/
