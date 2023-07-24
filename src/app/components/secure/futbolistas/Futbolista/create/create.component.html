@@ -1,26 +1,39 @@
 <app-nav></app-nav>
+
 <!-- crear-jugador.component.html -->
-<form (submit)="crearJugador()">
-    <div class="form-group">
-      <label for="nombre">Nombre</label>
-      <input type="text" class="form-control" id="nombre" [(ngModel)]="nombre" name="nombre" required>
+<div class="d-flex align-items-center justify-content-center" style="height: 100vh;">
+  <div class="container col-md-6">
+    <div class="text-center mb-4">
+      <img src="../../../../../../assets/logo futbolista.webp" alt="Imagen" class="img-fluid rounded-circle" style="width: 150px; height: 150px;">
     </div>
-    <div class="form-group">
-      <label for="ap_paterno">Apellido Paterno</label>
-      <input type="text" class="form-control" id="ap_paterno" [(ngModel)]="ap_paterno" name="ap_paterno" required>
-    </div>
-    <div class="form-group">
-      <label for="ap_materno">Apellido Materno</label>
-      <input type="text" class="form-control" id="ap_materno" [(ngModel)]="ap_materno" name="ap_materno">
-    </div>
-    <div class="form-group">
-      <label for="alias">Alias</label>
-      <input type="text" class="form-control" id="alias" [(ngModel)]="alias" name="alias">
-    </div>
-    <div class="form-group">
-      <label for="no_camiseta">No. Camiseta</label>
-      <input type="number" class="form-control" id="no_camiseta" [(ngModel)]="no_camiseta" name="no_camiseta" required>
-    </div>
-    <button type="submit" class="btn btn-primary" >Enviar</button>
-  </form>
-  
+    <form (submit)="crearJugador()" class="d-flex flex-column">
+      <div class="form-group">
+        <label for="nombre"><b>Nombre</b></label>
+        <input type="text" class="form-control" id="nombre" [(ngModel)]="nombre" name="nombre" required>
+      </div>
+      <div class="form-group">
+        <label for="ap_paterno"><b>Apellido Paterno</b></label>
+        <input type="text" class="form-control" id="ap_paterno" [(ngModel)]="ap_paterno" name="ap_paterno" required>
+      </div>
+      <div class="form-group">
+        <label for="ap_materno"><b>Apellido Materno</b></label>
+        <input type="text" class="form-control" id="ap_materno" [(ngModel)]="ap_materno" name="ap_materno">
+      </div>
+      <div class="form-group">
+        <label for="alias"><b>Alias</b></label>
+        <input type="text" class="form-control" id="alias" [(ngModel)]="alias" name="alias">
+      </div>
+      <div class="form-group">
+        <label for="no_camiseta"><b>No. Camiseta</b></label>
+        <input type="number" class="form-control" id="no_camiseta" [(ngModel)]="no_camiseta" name="no_camiseta" required>
+      </div>
+      <div class="d-flex justify-content-between">
+        <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+        <div>
+          <button type="button" class="btn btn-danger btn-sm" (click)="cancelar()">Cancelar</button>
+          <button type="button" class="btn btn-secondary btn-sm" (click)="regresar()">Atrás</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -54,4 +54,28 @@ export class FutbolistasComponent implements OnInit {
 
     this.paginaActual = numPagina;
   }
+
+  crearFutbolista() {
+    this.router.navigateByUrl('/crearFutbolista');
+  }
+
+  eliminarFutbolista(id: number) {
+    // Llamar al servicio para eliminar el futbolista por su ID
+    this.service.deletePersona(id).subscribe(
+      (data: any) => {
+        // Eliminación exitosa, realizar alguna acción si es necesario
+        // Por ejemplo, volver a cargar los futbolistas después de la eliminación
+        this.ngOnInit();
+      },
+      (error: any) => {
+        // Manejar el error en caso de que falle la eliminación
+        console.error(error);
+      }
+    );
+  }
+
+  editarFutbolista(futbolista: Futbolista) {
+    // Redirigir a la ruta de edición con el ID del futbolista
+    this.router.navigateByUrl(`/editarFutbolista/${futbolista.id}`);
+  } 
 }

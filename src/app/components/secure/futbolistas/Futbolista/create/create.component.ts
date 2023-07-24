@@ -52,4 +52,17 @@ export class CreateComponent {
       }
     );
   }
+
+  cancelar() {
+    // Restablecer los campos del formulario trayendo los datos de la BD
+    this.nombre = '';
+    this.ap_paterno = '';
+    this.ap_materno = '';
+    this.alias = '';
+    this.no_camiseta = 0;
+  }
+
+  regresar(): void {
+    window.history.back();
+  }
 }
