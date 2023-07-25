@@ -1,4 +1,3 @@
-<p>update-equipo works!</p>
 <app-nav></app-nav>
 <div class="container mt-4">
   <h3>Editar Equipo</h3>
@@ -15,6 +14,10 @@
       <label for="estadio_id" class="form-label">Estadio</label>
       <input type="number" class="form-control" id="estadio_id" name="estadio_id" [(ngModel)]="equipo.estadio_id" required>
     </div>
-    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+    <div class="d-flex">
+      <button type="submit" class="btn btn-primary">Guardar cambios</button>
+      <button type="button" class="btn btn-secondary me-2" (click)="cancelar()">Cancelar</button>
+      
+    </div>
   </form>
 </div>

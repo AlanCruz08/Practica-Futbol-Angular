@@ -9,8 +9,9 @@ import { EquipoService } from 'src/app/services/Secure/equipo.service';
   templateUrl: './update-equipo.component.html',
   styleUrls: ['./update-equipo.component.css']
 })
-export class UpdateEquipoComponent implements OnInit {
+export class UpdateEquipoComponent  {
   equipo: Equipo = { nombre: '', dir_deportivo: '', estadio_id: 0 };
+  //variable para almacenar el id del equipo
   equipoId: number = 0;
 
   constructor(
@@ -31,6 +32,8 @@ export class UpdateEquipoComponent implements OnInit {
       (data: Equipo) => {
         this.equipo = data;
       },
+      
+
       (error: any) => {
         console.error(error);
       }
@@ -47,5 +50,11 @@ export class UpdateEquipoComponent implements OnInit {
         console.error('Error al actualizar el equipo', error);
       }
     );
+  }
+
+  cancelar(): void {
+    // Aquí puedes agregar lógica adicional si es necesario
+    // Por ejemplo, redirigir al usuario a la página anterior
+    this.router.navigate(['/equipos']);
   }
 }
