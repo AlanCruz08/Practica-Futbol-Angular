@@ -11,7 +11,7 @@ type NewType = Division;
 })
 export class DivisionService {
 
-  private apiUrl = environment.apiUrl;
+  
   private apiUrlDiv = environment.apiUrlDiv;
   constructor(private htttp: HttpClient) { }
 
@@ -40,7 +40,7 @@ export class DivisionService {
   {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders({ "Accept": "application/json", "Authorization": `Bearer ${token}` });
-    const url = `${this.apiUrl}/${id}`;
+    const url = `${this.apiUrlDiv}/${id}`;
     return this.htttp.put<Division>(url, division, { headers });
   }
 

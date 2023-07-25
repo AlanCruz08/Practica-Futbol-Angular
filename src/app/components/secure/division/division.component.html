@@ -25,7 +25,7 @@
           <td>{{ division.liga }}</td>
           <td>
             <div class="d-flex justify-content-center">
-              <button class="btn btn-primary me-4">Editar</button>
+              <button class="btn btn-primary me-4" [routerLink]="['/editarDivision', division.id]">Editar</button>
               <button class="btn btn-danger me-2" (click)="division.id !== undefined ? eliminarDivision(division.id) : null">Eliminar</button>
 
 

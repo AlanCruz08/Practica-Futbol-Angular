@@ -23,6 +23,7 @@ import { CreateDivisionComponent } from './components/secure/division/create-div
 import { CreateEstadioComponent } from './components/secure/estadio/create-estadio/create-estadio.component';
 import { EquiposComponent } from './components/secure/equipos/equipos.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +40,7 @@ import { EquiposComponent } from './components/secure/equipos/equipos.component'
     CreateDivisionComponent,
     CreateEstadioComponent,
     EquiposComponent,
+    
   ],
   imports: [
     BrowserModule,
