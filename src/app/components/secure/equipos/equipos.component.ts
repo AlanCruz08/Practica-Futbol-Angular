@@ -54,4 +54,17 @@ export class EquiposComponent {
 
     this.paginaActual = numPagina;
   }
+
+  eliminarEquipo(id: number) {
+    // Llamar al servicio para eliminar el futbolista por su ID
+    this.service.deleteEquipo(id).subscribe(
+      (data: any) => {
+        this.ngOnInit();
+      },
+      (error: any) => {
+        // Manejar el error en caso de que falle la eliminación
+        console.error(error);
+      }
+    );
+  }
 }

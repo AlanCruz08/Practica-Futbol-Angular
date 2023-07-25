@@ -22,6 +22,7 @@ import { HighlightDirective } from './directives/highlight.directive';
 import { CreateDivisionComponent } from './components/secure/division/create-division/create-division.component';
 import { CreateEstadioComponent } from './components/secure/estadio/create-estadio/create-estadio.component';
 import { EquiposComponent } from './components/secure/equipos/equipos.component';
+import { CreateEquipoComponent } from './components/secure/equipos/create-equipo/create-equipo.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { EquiposComponent } from './components/secure/equipos/equipos.component'
     CreateDivisionComponent,
     CreateEstadioComponent,
     EquiposComponent,
+    CreateEquipoComponent,
     
   ],
   imports: [

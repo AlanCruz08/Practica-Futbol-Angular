@@ -14,6 +14,7 @@ import { CreateDivisionComponent } from './components/secure/division/create-div
 import { EquiposComponent } from './components/secure/equipos/equipos.component';
 import { UpdateComponent } from './components/secure/futbolistas/Futbolista/update/update.component';
 import{UpdateDivisionComponent} from './components/secure/division/update-division/update-division.component';
+import { CreateEquipoComponent } from './components/secure/equipos/create-equipo/create-equipo.component';
 
 
 
@@ -34,15 +35,11 @@ const routes: Routes = [
   {path: 'crearDivision', component: CreateDivisionComponent, canActivate: [validateGuard]},
   {path: 'editarDivision/:id', component: UpdateDivisionComponent, canActivate: [validateGuard]},
   
+  {path: 'equipos', component: EquiposComponent, canActivate: [validateGuard]},
+  {path: 'crearEquipo', component: CreateEquipoComponent, canActivate: [validateGuard]},
+
   /*
-  {
-    path: 'division', component: DivisionComponent,
-    canActivate: [validateGuard],
-    children: [
-     // { path: 'crear', component: CreateComponent },
-    // { path: 'editar', component: CreateComponent },
-    ]
-  },
+  
   {
     path: 'estadio', component: EstadioComponent, 
     canActivate: [validateGuard],

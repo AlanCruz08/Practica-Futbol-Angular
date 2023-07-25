@@ -1,0 +1,31 @@
+<app-nav></app-nav>
+
+
+<div class="d-flex align-items-center justify-content-center" style="height: 100vh;">
+  <div class="container col-md-6">
+    <div class="text-center mb-4">
+      <img src="../../../../../../assets/logo futbolista.webp" alt="Imagen" class="img-fluid rounded-circle" style="width: 150px; height: 150px;">
+    </div>
+    <form (submit)="crearDivision()" class="d-flex flex-column">
+      <div class="form-group">
+        <label for="nombre"><b>Nombre del Equipo</b></label>
+        <input type="text" class="form-control" id="nombre" [(ngModel)]="equipo.nombre" name="nombre" required>
+      </div>
+      <div class="form-group">
+        <label for="dir_deportivo"><b>Director Tecnico</b></label>
+        <input type="text" class="form-control" id="dir_deportivo" [(ngModel)]="equipo.dir_deportivo" name="dir_deportivo" required>
+      </div>
+      <div class="form-group">
+        <label for="estadio_id"><b>Estadio </b></label>
+        <input type="text" class="form-control" id="estadio_id" [(ngModel)]="equipo.estadio_id" name="estadio_id">
+      </div>
+      <div class="d-flex justify-content-between">
+        <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+        <div>
+          <button type="button" class="btn btn-danger btn-sm" (click)="cancelar()">Cancelar</button>
+          <button type="button" class="btn btn-secondary btn-sm" (click)="regresar()">Atrás</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -11,39 +11,39 @@ type NewType = Equipo;
 })
 
 export class EquipoService {
-  private apiUrl = environment.apiUrlEquip;
+  private apiUrlEquip = environment.apiUrlEquip;
 
   constructor(private http: HttpClient) { }
 
   getEquipos(id: number): Observable<Equipo> {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders({ "Accept": "application/json", "Authorization": `Bearer ${token}` });
-    const url = `${this.apiUrl}/${id}`;
+    const url = `${this.apiUrlEquip}/${id}`;
     return this.http.get<Equipo>(url, { headers });
   }
 
   getEquipo(): Observable<NewType[]> {
-    return this.http.get<Equipo[]>(`${this.apiUrl}/`);
+    return this.http.get<Equipo[]>(`${this.apiUrlEquip}/`);
   }
 
-  createEquipo(persona: Equipo): Observable<Equipo> {
+  createEquipo(equipo: Equipo): Observable<Equipo> {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders({ "Accept": "application/json", "Authorization": `Bearer ${token}` });
-    const url = `${this.apiUrl}/`;
-    return this.http.post<Equipo>(url, persona, { headers });
+    const url = `${this.apiUrlEquip}/`;
+    return this.http.post<Equipo>(url, equipo, { headers });
   }
 
   updateEquipo(id: number, persona: Equipo): Observable<Equipo> {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders({ "Accept": "application/json", "Authorization": `Bearer ${token}` });
-    const url = `${this.apiUrl}/${id}`;
+    const url = `${this.apiUrlEquip}/${id}`;
     return this.http.put<Equipo>(url, persona, { headers });
   }
 
   deleteEquipo(id: number): Observable<void> {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders({ "Accept": "application/json", "Authorization": `Bearer ${token}` });
-    const url = `${this.apiUrl}/${id}`;
+    const url = `${this.apiUrlEquip}/${id}`;
     return this.http.delete<void>(url, { headers });
   }
 }
