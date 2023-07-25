@@ -1,0 +1,49 @@
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Equipo } from 'src/app/interface/secure';
+import { environment } from 'env';
+
+type NewType = Equipo;
+
+@Injectable({
+  providedIn: 'root'
+})
+
+export class EquipoService {
+  private apiUrl = environment.apiUrlEquip;
+
+  constructor(private http: HttpClient) { }
+
+  getEquipos(id: number): Observable<Equipo> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({ "Accept": "application/json", "Authorization": `Bearer ${token}` });
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.get<Equipo>(url, { headers });
+  }
+
+  getEquipo(): Observable<NewType[]> {
+    return this.http.get<Equipo[]>(`${this.apiUrl}/`);
+  }
+
+  createEquipo(persona: Equipo): Observable<Equipo> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({ "Accept": "application/json", "Authorization": `Bearer ${token}` });
+    const url = `${this.apiUrl}/`;
+    return this.http.post<Equipo>(url, persona, { headers });
+  }
+
+  updateEquipo(id: number, persona: Equipo): Observable<Equipo> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({ "Accept": "application/json", "Authorization": `Bearer ${token}` });
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.put<Equipo>(url, persona, { headers });
+  }
+
+  deleteEquipo(id: number): Observable<void> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({ "Accept": "application/json", "Authorization": `Bearer ${token}` });
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.delete<void>(url, { headers });
+  }
+}
