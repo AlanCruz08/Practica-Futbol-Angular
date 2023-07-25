@@ -1,1 +1,20 @@
 <p>update-equipo works!</p>
+<app-nav></app-nav>
+<div class="container mt-4">
+  <h3>Editar Equipo</h3>
+  <form (ngSubmit)="guardarCambios()">
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre</label>
+      <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="equipo.nombre" required>
+    </div>
+    <div class="mb-3">
+      <label for="dir_deportivo" class="form-label">Director deportivo</label>
+      <input type="text" class="form-control" id="dir_deportivo" name="dir_deportivo" [(ngModel)]="equipo.dir_deportivo" required>
+    </div>
+    <div class="mb-3">
+      <label for="estadio_id" class="form-label">Estadio</label>
+      <input type="number" class="form-control" id="estadio_id" name="estadio_id" [(ngModel)]="equipo.estadio_id" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+  </form>
+</div>

@@ -23,7 +23,7 @@ export class EquiposComponent {
   ) { }
 
   ngOnInit(): void {
-    this.service.getEquipo().subscribe(
+    this.service.getEquipos().subscribe(
       (data: any) => {
         this.equipos = data.data;
         this.calcularPaginasTotales();

@@ -24,7 +24,9 @@ export class DivisionService {
 }
 
   getDivisiones(): Observable<NewType[]> {
-    
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({ "Accept": "application/json", "Authorization": `Bearer ${token}` });
+    const url = `${this.apiUrlDiv}/`;
   return this.htttp.get<Division[]>(`${this.apiUrlDiv}/`);
   }
 

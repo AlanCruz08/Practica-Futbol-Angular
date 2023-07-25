@@ -15,14 +15,17 @@ export class EquipoService {
 
   constructor(private http: HttpClient) { }
 
-  getEquipos(id: number): Observable<Equipo> {
+  getEquipo(id: number): Observable<Equipo> {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders({ "Accept": "application/json", "Authorization": `Bearer ${token}` });
     const url = `${this.apiUrlEquip}/${id}`;
     return this.http.get<Equipo>(url, { headers });
   }
 
-  getEquipo(): Observable<NewType[]> {
+  getEquipos(): Observable<NewType[]> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({ "Accept": "application/json", "Authorization": `Bearer ${token}` });
+    const url = `${this.apiUrlEquip}/`;
     return this.http.get<Equipo[]>(`${this.apiUrlEquip}/`);
   }
 
