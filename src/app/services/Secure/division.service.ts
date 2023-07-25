@@ -47,7 +47,7 @@ export class DivisionService {
   deleteDivision(id: number): Observable<void>{
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders({ "Accept": "application/json", "Authorization": `Bearer ${token}` });
-    const url = `${this.apiUrl}/${id}`;
+    const url = `${this.apiUrlDiv}/${id}`;
     return this.htttp.delete<void>(url, { headers });
   }
 }
