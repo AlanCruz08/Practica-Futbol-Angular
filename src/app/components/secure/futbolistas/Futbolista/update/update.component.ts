@@ -10,7 +10,7 @@ import { Futbolista } from 'src/app/interface/secure';
   styleUrls: ['./update.component.css']
 })
 export class UpdateComponent implements OnInit {
-  futbolista!: Futbolista; // Agrega una propiedad para almacenar el futbolista
+  futbolista!: Futbolista ; // Agrega una propiedad para almacenar el futbolista
   futbolistaId!: number; // Agrega una propiedad para almacenar el ID del futbolista
 
   constructor(

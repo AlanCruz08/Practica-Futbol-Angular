@@ -22,9 +22,14 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [validateGuard] },
   
   
-  { path: 'futbolistas', component: FutbolistasComponent },
-  { path: 'crearFutbolista', component: CreateComponent },
-  { path: 'editarFutbolista/:id', component: UpdateComponent },
+  
+  { path: 'futbolistas', component: FutbolistasComponent, canActivate: [validateGuard] },
+  { path: 'crearFutbolista', component: CreateComponent, canActivate: [validateGuard] },
+  { path: 'editarFutbolista/:id', component: UpdateComponent, canActivate: [validateGuard] },
+
+
+  {path: 'division', component: DivisionComponent, canActivate: [validateGuard]},
+  {path: 'crearDivision', component: CreateDivisionComponent, canActivate: [validateGuard]},
   
   /*
   {

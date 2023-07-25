@@ -19,11 +19,12 @@ export class DivisionService {
   getDivision(id:number): Observable<Division> {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders({ "Accept": "application/json", "Authorization": `Bearer ${token}` });
-    const url = `${this.apiUrl}/${id}`;
+    const url = `${this.apiUrlDiv}/${id}`;
     return this.htttp.get<Division>(url, { headers });
 }
 
   getDivisiones(): Observable<NewType[]> {
+    
   return this.htttp.get<Division[]>(`${this.apiUrlDiv}/`);
   }
 
@@ -31,7 +32,7 @@ export class DivisionService {
   {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders({ "Accept": "application/json", "Authorization": `Bearer ${token}` });
-    const url = `${this.apiUrl}/`;
+    const url = `${this.apiUrlDiv}/`;
     return this.htttp.post<Division>(url, division, { headers });
   }
 

@@ -47,4 +47,16 @@ export class CreateDivisionComponent {
       }
     );
   }
+
+  cancelar() {
+    // Restablecer los campos del formulario trayendo los datos de la BD
+    this.division.nivel = 0;
+    this.division.liga = '';
+
+  }
+
+  regresar(): void {
+    window.history.back();
+  }
 }
+

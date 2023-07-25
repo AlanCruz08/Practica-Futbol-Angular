@@ -20,7 +20,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let division of divisionesPaginados">
+        <tr *ngFor="let division of divisiones">
           <td class="text-center"><b>{{ division.nivel }}</b></td>
           <td>{{ division.liga }}</td>
           <td>
@@ -33,17 +33,5 @@
       </tbody>
     </table>
   </div>
-  <nav *ngIf="paginasTotales.length > 1" aria-label="Page navigation example">
-    <ul class="pagination justify-content-center">
-      <li class="page-item" [class.disabled]="paginaActual === 1">
-        <button class="page-link" (click)="cambiarPagina(paginaActual - 1)">Anterior</button>
-      </li>
-      <li class="page-item" *ngFor="let numPagina of paginasTotales" [class.active]="paginaActual === numPagina">
-        <button class="page-link" (click)="cambiarPagina(numPagina)">{{ numPagina }}</button>
-      </li>
-      <li class="page-item" [class.disabled]="paginaActual === paginasTotales.length">
-        <button class="page-link" (click)="cambiarPagina(paginaActual + 1)">Siguiente</button>
-      </li>
-    </ul>
-  </nav>
+
 </div>
