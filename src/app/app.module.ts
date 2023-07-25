@@ -23,6 +23,7 @@ import { CreateDivisionComponent } from './components/secure/division/create-div
 import { CreateEstadioComponent } from './components/secure/estadio/create-estadio/create-estadio.component';
 import { EquiposComponent } from './components/secure/equipos/equipos.component';
 import { CreateEquipoComponent } from './components/secure/equipos/create-equipo/create-equipo.component';
+import { UpdateEquipoComponent } from './components/secure/equipos/update-equipo/update-equipo.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { CreateEquipoComponent } from './components/secure/equipos/create-equipo
     CreateEstadioComponent,
     EquiposComponent,
     CreateEquipoComponent,
+    UpdateEquipoComponent,
     
   ],
   imports: [

@@ -15,6 +15,7 @@ import { EquiposComponent } from './components/secure/equipos/equipos.component'
 import { UpdateComponent } from './components/secure/futbolistas/Futbolista/update/update.component';
 import{UpdateDivisionComponent} from './components/secure/division/update-division/update-division.component';
 import { CreateEquipoComponent } from './components/secure/equipos/create-equipo/create-equipo.component';
+import { UpdateEquipoComponent } from './components/secure/equipos/update-equipo/update-equipo.component';
 
 
 
@@ -37,6 +38,7 @@ const routes: Routes = [
   
   {path: 'equipos', component: EquiposComponent, canActivate: [validateGuard]},
   {path: 'crearEquipo', component: CreateEquipoComponent, canActivate: [validateGuard]},
+  {path: 'editarEquipo/:id', component: UpdateEquipoComponent, canActivate: [validateGuard]},
 
   /*
   
