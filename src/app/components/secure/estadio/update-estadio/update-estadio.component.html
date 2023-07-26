@@ -1,0 +1,22 @@
+<app-nav></app-nav>
+<div class="container mt-4">
+  <h3>Editar Estadio</h3>
+  <form (ngSubmit)="guardarCambios()">
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre del Estadio</label>
+      <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="estadio.nombre" required>
+    </div>
+    <div class="mb-3">
+      <label for="pais" class="form-label">País</label>
+      <input type="text" class="form-control" id="pais" name="pais" [(ngModel)]="estadio.pais" required>
+    </div>
+    <div class="mb-3">
+      <label for="capacidad" class="form-label">Capacidad</label>
+      <input type="number" class="form-control" id="capacidad" name="capacidad" [(ngModel)]="estadio.capacidad">
+    </div>
+    <div class="d-flex">
+      <button type="submit" class="btn btn-primary">Guardar cambios</button>
+      <button type="button" class="btn btn-secondary me-2" (click)="cancelar()">Cancelar</button>
+    </div>
+  </form>
+</div>
