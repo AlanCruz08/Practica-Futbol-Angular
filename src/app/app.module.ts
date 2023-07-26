@@ -25,6 +25,7 @@ import { EquiposComponent } from './components/secure/equipos/equipos.component'
 import { CreateEquipoComponent } from './components/secure/equipos/create-equipo/create-equipo.component';
 import { UpdateEquipoComponent } from './components/secure/equipos/update-equipo/update-equipo.component';
 import { UpdateEstadioComponent } from './components/secure/estadio/update-estadio/update-estadio.component';
+import{UpdateDivisionComponent} from './components/secure/division/update-division/update-division.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { UpdateEstadioComponent } from './components/secure/estadio/update-estad
     CreateEquipoComponent,
     UpdateEquipoComponent,
     UpdateEstadioComponent,
+    UpdateDivisionComponent,
     
   ],
   imports: [
