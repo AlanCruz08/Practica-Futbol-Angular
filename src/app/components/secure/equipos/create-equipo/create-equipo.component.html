@@ -1,22 +1,22 @@
 <app-nav></app-nav>
 
-
-<div class="d-flex align-items-center justify-content-center" style="height: 100vh;">
-  <div class="container col-md-6">
+<div class="d-flex align-items-center justify-content-center" style="min-height: 100vh; background-color: #f2f2f2;">
+  <div class="container col-md-6 p-4 rounded shadow bg-white">
     <div class="text-center mb-4">
-      <img src="../../../../../../assets/logo futbolista.webp" alt="Imagen" class="img-fluid rounded-circle" style="width: 150px; height: 150px;">
+      <img src="../../../../../assets/logo futbolista.webp" alt="Imagen" class="img-fluid rounded-circle" style="width: 150px; height: 150px;">
+      <h3 class="mt-3"><b>Crear Equipo</b></h3>
     </div>
-    <form (submit)="crearDivision()" class="d-flex flex-column">
-      <div class="form-group">
-        <label for="nombre"><b>Nombre del Equipo</b></label>
+    <form (submit)="crearEquipo()" class="d-flex flex-column">
+      <div class="mb-3">
+        <label for="nombre" class="form-label"><b>Nombre del Equipo</b></label>
         <input type="text" class="form-control" id="nombre" [(ngModel)]="equipo.nombre" name="nombre" required>
       </div>
-      <div class="form-group">
-        <label for="dir_deportivo"><b>Director Tecnico</b></label>
+      <div class="mb-3">
+        <label for="dir_deportivo" class="form-label"><b>Director Técnico</b></label>
         <input type="text" class="form-control" id="dir_deportivo" [(ngModel)]="equipo.dir_deportivo" name="dir_deportivo" required>
       </div>
-      <div class="form-group">
-        <label for="estadio_id"><b>Estadio </b></label>
+      <div class="mb-3">
+        <label for="estadio_id" class="form-label"><b>Estadio</b></label>
         <input type="text" class="form-control" id="estadio_id" [(ngModel)]="equipo.estadio_id" name="estadio_id">
       </div>
       <div class="d-flex justify-content-between">

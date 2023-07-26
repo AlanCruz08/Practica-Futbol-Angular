@@ -28,7 +28,7 @@ export class CreateEquipoComponent {
     };
   }
 
-  crearDivision() {
+  crearEquipo() {
     const equipo: Equipo = { // Creación de un objeto Division con los datos actuales
       nombre: this.equipo.nombre,
       dir_deportivo: this.equipo.dir_deportivo,
