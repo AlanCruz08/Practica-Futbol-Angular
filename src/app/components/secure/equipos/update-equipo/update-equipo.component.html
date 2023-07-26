@@ -1,23 +1,30 @@
 <app-nav></app-nav>
-<div class="container mt-4">
-  <h3>Editar Equipo</h3>
-  <form (ngSubmit)="guardarCambios()">
-    <div class="mb-3">
-      <label for="nombre" class="form-label">Nombre</label>
-      <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="equipo.nombre" required>
+
+<div class="d-flex align-items-center justify-content-center" style="min-height: 100vh; background-color: #f2f2f2;">
+  <div class="container col-md-6 p-4 rounded shadow bg-white">
+    <div class="text-center mb-4">
+      <img src="../../../../../../assets/logo futbolista.webp" alt="Imagen" class="img-fluid rounded-circle" style="width: 150px; height: 150px;">
+      <h3 class="mt-3"><b>Editar Equipo</b></h3>
     </div>
-    <div class="mb-3">
-      <label for="dir_deportivo" class="form-label">Director deportivo</label>
-      <input type="text" class="form-control" id="dir_deportivo" name="dir_deportivo" [(ngModel)]="equipo.dir_deportivo" required>
-    </div>
-    <div class="mb-3">
-      <label for="estadio_id" class="form-label">Estadio</label>
-      <input type="number" class="form-control" id="estadio_id" name="estadio_id" [(ngModel)]="equipo.estadio_id" required>
-    </div>
-    <div class="d-flex">
-      <button type="submit" class="btn btn-primary">Guardar cambios</button>
-      <button type="button" class="btn btn-secondary me-2" (click)="cancelar()">Cancelar</button>
-      
-    </div>
-  </form>
+    <form (submit)="guardarCambios()" class="d-flex flex-column">
+      <div class="mb-3">
+        <label for="nombre" class="form-label"><b>Nombre</b></label>
+        <input type="text" class="form-control" id="nombre" [(ngModel)]="equipo.nombre" name="nombre" required>
+      </div>
+      <div class="mb-3">
+        <label for="dir_deportivo" class="form-label"><b>Director deportivo</b></label>
+        <input type="text" class="form-control" id="dir_deportivo" [(ngModel)]="equipo.dir_deportivo" name="dir_deportivo" required>
+      </div>
+      <div class="mb-3">
+        <label for="estadio_id" class="form-label"><b>Estadio</b></label>
+        <input type="number" class="form-control" id="estadio_id" [(ngModel)]="equipo.estadio_id" name="estadio_id" required>
+      </div>
+      <div class="d-flex justify-content-between">
+        <button type="submit" class="btn btn-primary btn-lg">Guardar cambios</button>
+        <div>
+          <button type="button" class="btn btn-secondary btn-sm" (click)="cancelar()">Cancelar</button>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>

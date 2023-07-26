@@ -1,42 +1,38 @@
 <app-nav></app-nav>
 
-<div class="container mt-4" *ngIf="futbolista">
-  <div class="row justify-content-center">
-    <div class="col-lg-6">
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">Editar Futbolista</h3>
-        </div>
-        <div class="card-body">
-          <form (ngSubmit)="guardarCambios()">
-            <div class="mb-3">
-              <label for="nombre" class="form-label">Nombre</label>
-              <input type="text" id="nombre" class="form-control" [(ngModel)]="futbolista.nombre" name="nombre" required>
-            </div>
-            <div class="mb-3">
-              <label for="ap_paterno" class="form-label">Apellido Paterno</label>
-              <input type="text" id="ap_paterno" class="form-control" [(ngModel)]="futbolista.ap_paterno" name="ap_paterno" required>
-            </div>
-            <div class="mb-3">
-              <label for="ap_materno" class="form-label">Apellido Materno</label>
-              <input type="text" id="ap_materno" class="form-control" [(ngModel)]="futbolista.ap_materno" name="ap_materno">
-            </div>
-            <div class="mb-3">
-              <label for="alias" class="form-label">Alias</label>
-              <input type="text" id="alias" class="form-control" [(ngModel)]="futbolista.alias" name="alias">
-            </div>
-            <div class="mb-3">
-              <label for="no_camiseta" class="form-label">Número de Camiseta</label>
-              <input type="number" id="no_camiseta" class="form-control" [(ngModel)]="futbolista.no_camiseta" name="no_camiseta" required>
-            </div>
-
-            <div class="d-grid gap-2">
-              <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-              <button type="button" class="btn btn-secondary" (click)="cancelar()">Cancelar</button>
-            </div>
-          </form>
+<div class="d-flex align-items-center justify-content-center" style="min-height: 100vh; background-color: #f2f2f2;">
+  <div class="container col-md-6 p-4 rounded shadow bg-white">
+    <div class="text-center mb-4">
+      <img src="../../../../../../assets/logo futbolista.webp" alt="Imagen" class="img-fluid rounded-circle" style="width: 150px; height: 150px;">
+      <h3 class="mt-3"><b>Editar Futbolista</b></h3>
+    </div>
+    <form (ngSubmit)="guardarCambios()" class="d-flex flex-column">
+      <div class="mb-3">
+        <label for="nombre" class="form-label"><b>Nombre</b></label>
+        <input type="text" class="form-control" id="nombre" [(ngModel)]="futbolista.nombre" name="nombre" required>
+      </div>
+      <div class="mb-3">
+        <label for="ap_paterno" class="form-label"><b>Apellido Paterno</b></label>
+        <input type="text" class="form-control" id="ap_paterno" [(ngModel)]="futbolista.ap_paterno" name="ap_paterno" required>
+      </div>
+      <div class="mb-3">
+        <label for="ap_materno" class="form-label"><b>Apellido Materno</b></label>
+        <input type="text" class="form-control" id="ap_materno" [(ngModel)]="futbolista.ap_materno" name="ap_materno">
+      </div>
+      <div class="mb-3">
+        <label for="alias" class="form-label"><b>Alias</b></label>
+        <input type="text" class="form-control" id="alias" [(ngModel)]="futbolista.alias" name="alias">
+      </div>
+      <div class="mb-3">
+        <label for="no_camiseta" class="form-label"><b>Número de Camiseta</b></label>
+        <input type="number" class="form-control" id="no_camiseta" [(ngModel)]="futbolista.no_camiseta" name="no_camiseta" required>
+      </div>
+      <div class="d-flex justify-content-between">
+        <button type="submit" class="btn btn-primary btn-lg">Guardar Cambios</button>
+        <div>
+          <button type="button" class="btn btn-secondary btn-sm" (click)="cancelar()">Cancelar</button>
         </div>
       </div>
-    </div>
+    </form>
   </div>
 </div>

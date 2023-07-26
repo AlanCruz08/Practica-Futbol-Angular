@@ -51,6 +51,6 @@ export class UpdateEstadioComponent implements OnInit {
   cancelar(): void {
     // Aquí puedes agregar lógica adicional si es necesario
     // Por ejemplo, redirigir al usuario a la página anterior
-    this.router.navigate(['/estadios']);
+    this.router.navigate(['/estadio']);
   }
 }
