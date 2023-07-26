@@ -51,4 +51,17 @@ export class CreateEstadioComponent {
     );
   }
 
+  cancelar() {
+    // Restablecer los campos del formulario trayendo los datos de la BD
+    this.estadio.nombre = '';
+    this.estadio.pais = '';
+    this.estadio.capacidad = 0;
+
+
+  }
+
+  regresar(): void {
+    window.history.back();
+  }
+
 }

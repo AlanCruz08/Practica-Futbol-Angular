@@ -40,6 +40,8 @@ const routes: Routes = [
   {path: 'crearEquipo', component: CreateEquipoComponent, canActivate: [validateGuard]},
   {path: 'editarEquipo/:id', component: UpdateEquipoComponent, canActivate: [validateGuard]},
 
+  {path: 'estadio', component: EstadioComponent, canActivate: [validateGuard]},
+  {path: 'crearEstadio', component: CreateEstadioComponent, canActivate: [validateGuard]}
   /*
   
   {
