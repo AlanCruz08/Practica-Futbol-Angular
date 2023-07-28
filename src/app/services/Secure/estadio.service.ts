@@ -25,7 +25,7 @@ export class EstadioService {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders({ "Accept": "application/json", "Authorization": `Bearer ${token}` });
     const url = `${this.apiUrlEstad}/`; // Asegúrate de incluir el ID en la URL
-    return this.http.get<Estadio[]>(`${this.apiUrlEstad}/`);
+    return this.http.get<Estadio[]>(`${this.apiUrlEstad}/`, { headers });
   }
 
   createEstadio(estadio: Estadio): Observable<Estadio>

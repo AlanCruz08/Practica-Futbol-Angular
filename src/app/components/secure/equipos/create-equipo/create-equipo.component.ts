@@ -24,7 +24,7 @@ export class CreateEquipoComponent {
       
       nombre: '',
       dir_deportivo: '',
-      estadio_id: 0,
+      estadio: '',
     };
   }
 
@@ -32,7 +32,7 @@ export class CreateEquipoComponent {
     const equipo: Equipo = { // Creación de un objeto Division con los datos actuales
       nombre: this.equipo.nombre,
       dir_deportivo: this.equipo.dir_deportivo,
-      estadio_id: this.equipo.estadio_id,
+      estadio: this.equipo.estadio,
     };
 
     this.equipoService.createEquipo(equipo).subscribe( // Llamada al método createDivision() del servicio divisionService
@@ -42,7 +42,7 @@ export class CreateEquipoComponent {
         // Restablecer los campos del formulario trayendo los datos de la BD
         this.equipo.nombre = '';
         this.equipo.dir_deportivo = '';
-        this.equipo.estadio_id = 0;
+        this.equipo.estadio = '';
 
         // Redirigir a la tabla de divisiones
         this.router.navigate(['/equipos']);
@@ -57,7 +57,7 @@ export class CreateEquipoComponent {
     // Restablecer los campos del formulario trayendo los datos de la BD
     this.equipo.nombre = '';
         this.equipo.dir_deportivo = '';
-        this.equipo.estadio_id = 0;
+        this.equipo.estadio = '';
 
 
   }

@@ -10,7 +10,7 @@ import { EquipoService } from 'src/app/services/Secure/equipo.service';
   styleUrls: ['./update-equipo.component.css']
 })
 export class UpdateEquipoComponent  {
-  equipo: Equipo = { nombre: '', dir_deportivo: '', estadio_id: 0 };
+  equipo: Equipo = { nombre: '', dir_deportivo: '', estadio: '' };
   //variable para almacenar el id del equipo
   equipoId: number = 0;
 

@@ -26,7 +26,7 @@ export class EquipoService {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders({ "Accept": "application/json", "Authorization": `Bearer ${token}` });
     const url = `${this.apiUrlEquip}/`;
-    return this.http.get<Equipo[]>(`${this.apiUrlEquip}/`);
+    return this.http.get<Equipo[]>(`${this.apiUrlEquip}/`, { headers });
   }
 
   createEquipo(equipo: Equipo): Observable<Equipo> {
