@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Estadio } from 'src/app/interface/secure';
 import { EstadioService } from 'src/app/services/Secure/estadio.service';
+import { FormsModule } from '@angular/forms'; // Importa el módulo FormsModule
 
 @Component({
   selector: 'app-update-estadio',
@@ -28,7 +29,8 @@ export class UpdateEstadioComponent implements OnInit {
   cargarEstadio(): void {
     this.estadioService.getEstadio(this.estadioId).subscribe(
       (data: Estadio) => {
-        this.estadio = data;
+        this.estadio = data; // Asigna los datos recibidos a la propiedad estadio
+        console.log(this.estadio); // Ahora debería mostrar los datos del estadio que se quiere editar
       },
       (error: any) => {
         console.error(error);
