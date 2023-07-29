@@ -17,11 +17,14 @@ export class UpdateComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private service: FutbolistasService
+    
 
 
   ) { }
 
   ngOnInit(): void {
+    this.futbolista = {} as Futbolista;
+
     this.route.params.subscribe(params => {
       this.futbolistaId = +params['id']; // Obtenemos el ID del futbolista de la URL
       // Llamamos al servicio para obtener los detalles del futbolista por su ID
