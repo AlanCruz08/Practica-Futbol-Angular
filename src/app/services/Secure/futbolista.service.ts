@@ -42,7 +42,7 @@ export class FutbolistasService{
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders({ "Accept": "application/json", "Authorization": `Bearer ${token}` });
     const url = `${this.apiUrl}/`; // Asegúrate de incluir el ID en la URL
-    return this.http.get<Futbolista[]>(`${this.apiUrl}/`);
+    return this.http.get<Futbolista[]>(`${this.apiUrl}/`, { headers });
   }
 
   createPersona(persona: Futbolista): Observable<Futbolista> {

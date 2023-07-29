@@ -1,4 +1,3 @@
-
 import { LoginComponent } from './components/public/login/login.component';
 import { RegisterComponent } from './components/public/register/register.component';
 import { DashboardComponent } from './components/secure/dashboard/dashboard.component';
@@ -13,7 +12,7 @@ import { CreateEstadioComponent } from './components/secure/estadio/create-estad
 import { CreateDivisionComponent } from './components/secure/division/create-division/create-division.component';
 import { EquiposComponent } from './components/secure/equipos/equipos.component';
 import { UpdateComponent } from './components/secure/futbolistas/Futbolista/update/update.component';
-import{UpdateDivisionComponent} from './components/secure/division/update-division/update-division.component';
+import { UpdateDivisionComponent } from './components/secure/division/update-division/update-division.component';
 import { CreateEquipoComponent } from './components/secure/equipos/create-equipo/create-equipo.component';
 import { UpdateEquipoComponent } from './components/secure/equipos/update-equipo/update-equipo.component';
 import { UpdateEstadioComponent } from './components/secure/estadio/update-estadio/update-estadio.component';
