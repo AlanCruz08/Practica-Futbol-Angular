@@ -23,8 +23,7 @@ export class ApiService {
 
   async validacion(token: string): Promise<Boolean>{
     try{
-      const headers = new HttpHeaders({ "Accept": "application/json", "Authorization": `Bearer ${token}` });
-      const response = await this.http.get<ApiResponse>(`${this.apiUrlSP}/validate`, { headers: headers }).toPromise();
+      const response = await this.http.get<ApiResponse>(`${this.apiUrlSP}/validate`).toPromise();
       return response?.data === true;
     }catch (error) {
       // console.error('Error al verificar el token:', error);
@@ -52,15 +51,14 @@ export class ApiService {
   }
 
   login(credentials: Login) {
-    return this.http.post(`${this.apiUrlSP}/login`, credentials);
+    const headers = new HttpHeaders().set('X-Skip-Interceptor', 'true');
+    return this.http.post(`${this.apiUrlSP}/login`, credentials, { headers: headers });
   }
 
   register(credentials: Register) {
-    return this.http.post(`${this.apiUrlSP}/register`, credentials);
+    const headers = new HttpHeaders().set('X-Skip-Interceptor', 'true');
+    return this.http.post(`${this.apiUrlSP}/register`, credentials, { headers: headers });
   }
-
-
-
 
   setAuthToken(token: string) {
     localStorage.setItem('authToken', token);

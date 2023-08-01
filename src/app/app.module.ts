@@ -25,8 +25,8 @@ import { EquiposComponent } from './components/secure/equipos/equipos.component'
 import { CreateEquipoComponent } from './components/secure/equipos/create-equipo/create-equipo.component';
 import { UpdateEquipoComponent } from './components/secure/equipos/update-equipo/update-equipo.component';
 import { UpdateEstadioComponent } from './components/secure/estadio/update-estadio/update-estadio.component';
-import{UpdateDivisionComponent} from './components/secure/division/update-division/update-division.component';
-
+import { UpdateDivisionComponent } from './components/secure/division/update-division/update-division.component';
+import { AuthInterceptor } from './interceptor/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -57,7 +57,13 @@ import{UpdateDivisionComponent} from './components/secure/division/update-divisi
     FormsModule,
     BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
