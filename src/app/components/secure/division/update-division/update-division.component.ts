@@ -15,13 +15,33 @@ export class UpdateDivisionComponent {
   constructor(
     private divisionService: DivisionService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private service: DivisionService,
   ) { }
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      this.divisionId = parseInt(params.get('id') || '0', 10);
-      this.cargarDivision();
+    this.division = {} as Division;
+
+    this.route.params.subscribe(params => {
+      this.divisionId = +params['id']; // Obtenemos el ID del futbolista de la URL
+      // Llamamos al servicio para obtener los detalles del futbolista por su ID
+      this.service.getDivision(this.divisionId).subscribe(
+        (response: any) => {
+          if (response.status === 200 && response.data) {
+            this.division = response.data; // Accede a los datos dentro de la propiedad 'data'
+            console.log(this.division);
+          } else {
+            // Manejar el caso en que no se encuentre el futbolista o la respuesta no sea la esperada
+            console.error('Error al obtener los datos del futbolista');
+            this.router.navigateByUrl('/division');
+          }
+        },
+        (error: any) => {
+          console.error(error);
+          // Si ocurre un error, puedes redirigir a la lista de futbolistas o mostrar un mensaje de error al usuario
+          this.router.navigateByUrl('/division');
+        }
+      );
     });
   }
 
