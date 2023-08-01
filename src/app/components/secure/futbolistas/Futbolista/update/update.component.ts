@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FutbolistasService } from 'src/app/services/Secure/futbolista.service';
 import { Futbolista } from 'src/app/interface/secure';
+import { Observable } from 'rxjs';
+import { EstadioService } from 'src/app/services/Secure/estadio.service';
 
 
 @Component({
@@ -12,17 +14,17 @@ import { Futbolista } from 'src/app/interface/secure';
 export class UpdateComponent implements OnInit {
   futbolista!: Futbolista; // Agrega una propiedad para almacenar el futbolista
   futbolistaId!: number; // Agrega una propiedad para almacenar el ID del futbolista
+  estadios: any[] = [];
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private service: FutbolistasService
-
-
-
+    private service: FutbolistasService,
+    private estadiosServ: EstadioService,
   ) { }
 
   ngOnInit(): void {
+    this.getEstadios();
     this.futbolista = {} as Futbolista;
 
     this.route.params.subscribe(params => {
@@ -64,6 +66,9 @@ export class UpdateComponent implements OnInit {
     );
   }
 
+  getEstadios(): Observable<any> {
+    return this.estadiosServ.getEstadios();
+  }
   cancelar() {
     // Redirigir a la lista de futbolistas sin guardar cambios
     this.router.navigateByUrl('/futbolistas');
