@@ -19,13 +19,33 @@ export class UpdateEquipoComponent implements OnInit {
     private equipoService: EquipoService,
     private estadioService: EstadioService, // Inyecta el servicio de estadios
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private service: EquipoService,
   ) { }
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      this.equipoId = parseInt(params.get('id') || '0', 10);
-      this.cargarEquipo();
+    this.equipo = {} as Equipo;
+
+    this.route.params.subscribe(params => {
+      this.equipoId = +params['id']; // Obtenemos el ID del futbolista de la URL
+      // Llamamos al servicio para obtener los detalles del futbolista por su ID
+      this.service.getEquipo(this.equipoId).subscribe(
+        (response: any) => {
+          if (response.status === 200 && response.data) {
+            this.equipo = response.data; // Accede a los datos dentro de la propiedad 'data'
+            console.log(this.equipo);
+          } else {
+            // Manejar el caso en que no se encuentre el futbolista o la respuesta no sea la esperada
+            console.error('Error al obtener los datos del equipo');
+            this.router.navigateByUrl('/equipos');
+          }
+        },
+        (error: any) => {
+          console.error(error);
+          // Si ocurre un error, puedes redirigir a la lista de futbolistas o mostrar un mensaje de error al usuario
+          this.router.navigateByUrl('/equipos');
+        }
+      );
     });
 
     this.getEstadios(); // Llama a la función para obtener los estadios al inicializar el componente

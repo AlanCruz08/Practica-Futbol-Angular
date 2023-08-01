@@ -16,15 +16,37 @@ export class UpdateEstadioComponent implements OnInit {
   constructor(
     private estadioService: EstadioService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private service: EstadioService,
   ) {}
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      this.estadioId = parseInt(params.get('id') || '0', 10);
-      this.cargarEstadio();
-    });
-  }
+    this.estadio = {} as Estadio;
+
+    this.route.params.subscribe(params => {
+      this.estadioId = +params['id']; // Obtenemos el ID del futbolista de la URL
+      // Llamamos al servicio para obtener los detalles del futbolista por su ID
+      this.service.getEstadio(this.estadioId).subscribe(
+        (response: any) => {
+          if (response.status === 200 && response.data) {
+            this.estadio = response.data; // Accede a los datos dentro de la propiedad 'data'
+            console.log(this.estadio);
+          } else {
+            // Manejar el caso en que no se encuentre el futbolista o la respuesta no sea la esperada
+            console.error('Error al obtener los datos del estadio');
+            this.router.navigateByUrl('/estadio');
+          }
+        },
+        (error: any) => {
+          console.error(error);
+          // Si ocurre un error, puedes redirigir a la lista de futbolistas o mostrar un mensaje de error al usuario
+          this.router.navigateByUrl('/estadio');
+        }
+        );
+      });
+    }
+  
+
 
   cargarEstadio(): void {
     this.estadioService.getEstadio(this.estadioId).subscribe(
