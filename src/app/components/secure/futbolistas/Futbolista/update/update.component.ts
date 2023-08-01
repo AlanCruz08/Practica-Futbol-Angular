@@ -10,14 +10,14 @@ import { Futbolista } from 'src/app/interface/secure';
   styleUrls: ['./update.component.css']
 })
 export class UpdateComponent implements OnInit {
-  futbolista!: Futbolista ; // Agrega una propiedad para almacenar el futbolista
+  futbolista!: Futbolista; // Agrega una propiedad para almacenar el futbolista
   futbolistaId!: number; // Agrega una propiedad para almacenar el ID del futbolista
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private service: FutbolistasService
-    
+
 
 
   ) { }
@@ -29,9 +29,15 @@ export class UpdateComponent implements OnInit {
       this.futbolistaId = +params['id']; // Obtenemos el ID del futbolista de la URL
       // Llamamos al servicio para obtener los detalles del futbolista por su ID
       this.service.getFutbolistas(this.futbolistaId).subscribe(
-        (data: Futbolista) => {
-          this.futbolista = data;
-          console.log(data);
+        (response: any) => {
+          if (response.status === 200 && response.data) {
+            this.futbolista = response.data; // Accede a los datos dentro de la propiedad 'data'
+            console.log(this.futbolista);
+          } else {
+            // Manejar el caso en que no se encuentre el futbolista o la respuesta no sea la esperada
+            console.error('Error al obtener los datos del futbolista');
+            this.router.navigateByUrl('/futbolistas');
+          }
         },
         (error: any) => {
           console.error(error);
@@ -40,8 +46,8 @@ export class UpdateComponent implements OnInit {
         }
       );
     });
-    };
-  
+  };
+
 
   guardarCambios() {
     // Llamamos al servicio para guardar los cambios del futbolista

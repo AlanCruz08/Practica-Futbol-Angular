@@ -4,7 +4,7 @@ export interface Futbolista {
     ap_paterno: string;
     ap_materno?: string;
     alias?: string;
-    no_camiseta: number;
+    no_camiseta?: number;
 }
 
 export interface Estadio {
