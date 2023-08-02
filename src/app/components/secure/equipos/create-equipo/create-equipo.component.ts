@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import {  Equipo } from 'src/app/interface/secure'; // Importación de la interfaz Division desde 'src/app/interface/secure'
+import {  Equipo, Estadio } from 'src/app/interface/secure'; // Importación de la interfaz Division desde 'src/app/interface/secure'
 import { Router } from '@angular/router';
 import { EquipoService } from 'src/app/services/Secure/equipo.service';
+import { EstadioService } from 'src/app/services/Secure/estadio.service';
 
 
 @Component({
@@ -11,12 +12,14 @@ import { EquipoService } from 'src/app/services/Secure/equipo.service';
 })
 export class CreateEquipoComponent {
 
+  estadios:Estadio[] = new Array<Estadio>(); // Array que almacenará los estadios
   equipos: Equipo[] = new Array<Equipo>(); // Array que almacenará las divisiones
   equipo!: Equipo; // Variable para almacenar una única división
 
   constructor(
     private equipoService: EquipoService, // Servicio para manejar las operaciones de las divisiones
-    private router: Router // Router para manejar la navegación dentro de la aplicación
+    private router: Router, // Router para manejar la navegación dentro de la aplicación
+    private estadioService: EstadioService,  //Servicio para manejar las operaciondes de los estadios
   ) {}
 
   ngOnInit(): void {
@@ -26,6 +29,8 @@ export class CreateEquipoComponent {
       dir_deportivo: '',
       estadio: '',
     };
+    this.getEstadios(); // Llamada al método getEstadios() para obtener los estadios disponibles
+
   }
 
   crearEquipo() {
@@ -51,6 +56,20 @@ export class CreateEquipoComponent {
         console.error('Error al crear el equipo:', error); // Impresión del mensaje de error en la consola
       }
     );
+  }
+
+  getEstadios()
+  {
+    this.estadioService.getEstadios().subscribe(
+      (data: Estadio[]) => {
+        this.estadios = data;
+        console.log(this.estadios);
+      },
+      (error: any) => {
+        console.error(error);
+      }
+    );
+
   }
 
   cancelar() {
